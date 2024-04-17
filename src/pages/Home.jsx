@@ -2,9 +2,14 @@ import React, { useState } from 'react'
 import products from '../data/Products'
 import Product from '../components/products/Product'
 import Cart from '../components/cart/Cart';
+import { Button, Modal } from 'react-bootstrap';
 
 const Home = () => {
     const [cartItems, setCartItems] = useState([]);
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     const addToCart = (productId) => {
         const productToAdd = products.find(product => product.id === productId);
@@ -33,8 +38,13 @@ const Home = () => {
 
   return (
     <>
+        <Button variant="primary" onClick={handleShow}>
+            Cart
+        </Button>
+        <Modal show={show} onHide={handleClose}>
+            <Cart handleClose={handleClose} handleShow={handleShow} cartItems={cartItems} removeFromCart={removeFromCart}/>
+        </Modal>
         <Product products={products} addToCart={addToCart}/>
-        <Cart cartItems={cartItems} removeFromCart={removeFromCart}/>
     </>
   )
 }
