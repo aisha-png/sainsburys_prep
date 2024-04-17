@@ -21,9 +21,12 @@ const Home = () => {
         const existInCart = cartItems.find(item => item.id === productId);
 
         if(existInCart ){
-            setCartItems(cartItems.map(item => item.id === productId && item.quantity !== 0 ? {...item, quantity: item.quantity - 1} : item ));
-        } else
-        setCartItems(cartItems.filter(item => item.range === 0 ? item.id !== productId : 'error' ));
+            if(existInCart.quantity > 1){
+                setCartItems(cartItems.map(item => item.id === productId && item.quantity !== 0 ? {...item, quantity: item.quantity - 1} : item ));
+            } else {
+                setCartItems(cartItems.filter(item => item.id !== productId));
+            }
+        }
     }
 
 
