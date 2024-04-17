@@ -16,9 +16,10 @@ const Cart = (props) => {
               <Card>
                 <Card.Title>{item.name}</Card.Title>
                 <img variant="top"  src={`../../assets/${item.image}`} alt={`${item.name}`}/>
-                <Card.Text> x {item.quantity}</Card.Text>
-                <Card.Text>£{item.price.toFixed(2)} </Card.Text>
+                <Card.Text>£{item.price.toFixed(2)} ({item.quantity}) </Card.Text>
+                <Button variant="primary" onClick={() => {props.addToCart(item.id)}}>Add to Cart</Button>
                 <Button onClick={() => {props.removeFromCart(item.id)}}>Remove Item</Button>
+                <Button onClick={() => {props.deleteFromCart(item.id)}}>Delete</Button>
               </Card>
             </Modal.Body>
         </>

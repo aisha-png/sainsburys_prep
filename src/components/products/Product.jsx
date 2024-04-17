@@ -8,7 +8,7 @@ const Product = (props) => {
     <>
         <div className='product'>
           <Row xs={1} md={4} >
-            {props.products.map((product, index) => (
+            {props.filteredProducts.map((product, index) => (
               <Card key={product.id}>
                 <div key={product.id}>
                   <Card.Body>
@@ -16,6 +16,7 @@ const Product = (props) => {
                     <img variant="top"  src={`../../assets/${product.image}`} alt={`${product.name}`}/>
                     <Card.Footer>£{product.price.toFixed(2)}</Card.Footer>
                     <Button variant="primary" onClick={() => {props.addToCart(product.id)}}>Add to Cart</Button>
+                    <Button variant="primary" onClick={() => {props.removeFromCart(product.id)}}>Remove</Button>
                   </Card.Body>
                 </div>
               </Card>
