@@ -1,5 +1,6 @@
 import React from 'react'
-// import 'Product.css'
+import '../products/Product.css'
+import { Button, Card } from 'react-bootstrap';
 
 const Product = (props) => {
 
@@ -7,10 +8,10 @@ const Product = (props) => {
     <>
         <div className='product'>
             <div key={props.id}>
-                <h4>{props.name}</h4>  
-                <img src={`../../assets/${props.image}`} alt={`${props.name}`}/>
-                <p>{props.price}</p>
-                <button>Add to Cart</button>
+                <Card.Title className='product_name'>{props.name}</Card.Title>  
+                <img variant="top"  src={`../../assets/${props.image}`} alt={`${props.name}`}/>
+                <Card.Text>£{props.price.toFixed(2)}</Card.Text>
+                <Button variant="primary" onClick={() => {props.onAddToCart(props.id)}}>Add to Cart</Button>
             </div>
         </div>
     </>
