@@ -15,14 +15,15 @@ const Cart = (props) => {
             <Card.Body>
               <Card.Title>{item.name}</Card.Title>
               <img variant="top"  src={`../../assets/${item.image}`} alt={`${item.name}`}/>
-              <Card.Text>£{item.price.toFixed(2)} x {item.quantity}</Card.Text>
+              <Card.Text> x {item.quantity}</Card.Text>
+              <Card.Text>£{item.price.toFixed(2)} </Card.Text>
               <Button onClick={() => {props.removeFromCart(item.id)}}>Remove Item</Button>
             </Card.Body>
           </Card>
         </>
       ))} 
     </Row>
-    <h4 >Total = {totalPrice}</h4>
+    <h4 >Total = £{totalPrice.toFixed(2)}</h4>
     </>
   )
 }
