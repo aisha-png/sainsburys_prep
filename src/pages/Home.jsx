@@ -7,6 +7,8 @@ import { Button, Modal } from 'react-bootstrap';
 const Home = () => {
     const [cartItems, setCartItems] = useState([]);
     const [show, setShow] = useState(false);
+   
+    const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -39,7 +41,8 @@ const Home = () => {
   return (
     <>
         <Button variant="primary" onClick={handleShow}>
-            Cart
+            Cart 
+            {totalItems > 0 && <span className="badge">{totalItems}</span>}
         </Button>
         <Modal show={show} onHide={handleClose}>
             <Cart handleClose={handleClose} handleShow={handleShow} cartItems={cartItems} removeFromCart={removeFromCart}/>

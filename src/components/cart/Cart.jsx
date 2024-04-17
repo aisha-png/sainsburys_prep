@@ -7,9 +7,9 @@ const Cart = (props) => {
 
   return (
     <>
-    <h4>Cart</h4>
-
-    <Row xs={1} md={2} >
+    <h3>Cart</h3>
+    <h4 >Total = £{totalPrice.toFixed(2)}</h4>
+    <Row xs={1} md={1} >
       {props.cartItems.map((item, index) => (
         <>
             <Modal.Body>
@@ -24,7 +24,8 @@ const Cart = (props) => {
         </>
       ))} 
     </Row>
-    <h4 >Total = £{totalPrice.toFixed(2)}</h4>
+    <p>{props.cartItems.length === 0 ? 'Empty Cart!' : <span className="badge">{totalPrice.toFixed(2)}</span>}</p>
+
     <Modal.Footer>
       <Button variant="secondary" onClick={props.handleClose}>
         Close
