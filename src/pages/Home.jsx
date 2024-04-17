@@ -11,24 +11,26 @@ const Home = () => {
         const existInCart = cartItems.find(product => product.id === productId);
 
         if(existInCart) {
-            setCartItems(cartItems.map(item => item.id === productId ? {...item, quantity: item.quantity + 1} : item
-            ));
+            setCartItems(cartItems.map(item => item.id === productId ? {...item, quantity: item.quantity + 1} : item ));
         } else {
             setCartItems([...cartItems, {...productToAdd, quantity: 1}]);
         }
     }
 
     const removeFromCart = (productId) => {
-        setCartItems(cartItems.filter(item => item.id === productId));
+        const existInCart = cartItems.find(item => item.id === productId);
+
+        if(existInCart ){
+            setCartItems(cartItems.map(item => item.id === productId && item.quantity !== 0 ? {...item, quantity: item.quantity - 1} : item ));
+        } else
+        setCartItems(cartItems.filter(item => item.range === 0 ? item.id !== productId : 'error' ));
     }
 
 
 
   return (
     <>
-        {products.map((product,index) =>  (
-            <Product key={product.id} id={product.id} name={product.name} price={product.price} image={product.image} addToCart={addToCart}/>
-        ))}
+        <Product products={products} addToCart={addToCart}/>
         <Cart cartItems={cartItems} removeFromCart={removeFromCart}/>
     </>
   )

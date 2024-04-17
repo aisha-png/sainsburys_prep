@@ -7,17 +7,19 @@ const Product = (props) => {
   return (
     <>
         <div className='product'>
-          <Row xs={1} md={2} >
-            <Card>
-              <div key={props.id}>
-                <Card.Body>
-                  <Card.Title className='product_name'>{props.name}</Card.Title>  
-                  <img variant="top"  src={`../../assets/${props.image}`} alt={`${props.name}`}/>
-                  <Card.Footer>£{props.price.toFixed(2)}</Card.Footer>
-                  <Button variant="primary" onClick={() => {props.addToCart(props.id)}}>Add to Cart</Button>
-                </Card.Body>
+          <Row xs={1} md={4} >
+            {props.products.map((product, index) => (
+              <Card key={product.id}>
+                <div key={product.id}>
+                  <Card.Body>
+                    <Card.Title className='product_name'>{product.name}</Card.Title>  
+                    <img variant="top"  src={`../../assets/${product.image}`} alt={`${product.name}`}/>
+                    <Card.Footer>£{product.price.toFixed(2)}</Card.Footer>
+                    <Button variant="primary" onClick={() => {props.addToCart(product.id)}}>Add to Cart</Button>
+                  </Card.Body>
                 </div>
-            </Card>
+              </Card>
+            ))}
           </Row>
         </div>
     </>
