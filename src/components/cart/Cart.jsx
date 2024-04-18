@@ -1,5 +1,7 @@
-import React from 'react'
-import { Button, Card, Image, Row, Modal } from 'react-bootstrap'
+import React from 'react';
+import '../../App.css';
+import { Button, Card, Row, Modal } from 'react-bootstrap';
+import './Cart.css';
 
 const Cart = (props) => {
 
@@ -13,13 +15,14 @@ const Cart = (props) => {
       {props.cartItems.map((item, index) => (
         <>
             <Modal.Body>
-              <Card>
+              <Card className='card-body'>
                 <Card.Title>{item.name}</Card.Title>
-                <img variant="top" src={`${item.image}`} alt={`${item.name}`} style={{ width: 'auto', height: "250px" }} />
-                <Card.Text>£{item.price.toFixed(2)} ({item.quantity}) </Card.Text>
-                <Button variant="primary" onClick={() => {props.addToCart(item.id)}}>Add to Cart</Button>
-                <Button onClick={() => {props.removeFromCart(item.id)}}>Remove Item</Button>
-                <Button onClick={() => {props.deleteFromCart(item.id)}}>Delete</Button>
+                <img variant="top" src={`${item.image}`} alt={`${item.name}`} style={{ width: 'auto', height: "auto" }} />
+
+                <Card.Footer>£{item.price.toFixed(2)} ({item.quantity})</Card.Footer>
+                <Button className="badge" variant="primary" onClick={() => {props.addToCart(item.id)}}>Add to Cart</Button>
+                <Button className="badge" onClick={() => {props.removeFromCart(item.id)}}>Remove Item</Button>
+                <Button className="badge" onClick={() => {props.deleteFromCart(item.id)}}>Delete</Button>
               </Card>
             </Modal.Body>
         </>
@@ -28,7 +31,7 @@ const Cart = (props) => {
     <p>{props.cartItems.length === 0 ? 'Empty Cart!' : <span className="badge">{totalPrice.toFixed(2)}</span>}</p>
 
     <Modal.Footer>
-      <Button variant="secondary" onClick={props.handleClose}>
+      <Button className="badge" variant="secondary" onClick={props.handleClose}>
         Close
       </Button>
     </Modal.Footer>

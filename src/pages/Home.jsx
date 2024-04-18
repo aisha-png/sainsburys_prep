@@ -3,6 +3,7 @@ import products from '../data/Products'
 import Product from '../components/products/Product'
 import Cart from '../components/cart/Cart';
 import { Button, Dropdown, Modal } from 'react-bootstrap';
+import './Home.css'
 
 const Home = () => {
     const [cartItems, setCartItems] = useState([]);
@@ -51,7 +52,7 @@ const Home = () => {
 
 
   return (
-    <>
+    <div className='home-body'>
         <Dropdown onSelect={handleCategoryChange}>
             <Dropdown.Toggle variant="success">
                 Select Categories
@@ -69,14 +70,14 @@ const Home = () => {
             Cart 
             {totalItems > 0 && <span className="badge">{totalItems}</span>}
         </Button>
-        <Modal show={show} onHide={handleClose} size="sm">
+        <Modal show={show} onHide={handleClose} >
             <Cart handleClose={handleClose} handleShow={handleShow} cartItems={cartItems} removeFromCart={removeFromCart} addToCart={addToCart} deleteFromCart={deleteFromCart}/>
         </Modal>
         
         <Product filteredProducts={filteredProducts} products={products} addToCart={addToCart} removeFromCart={removeFromCart} />
 
         
-    </>
+    </div>
   )
 }
 
