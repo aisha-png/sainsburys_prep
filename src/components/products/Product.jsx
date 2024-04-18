@@ -6,26 +6,27 @@ const Product = (props) => {
 
   return (
     <>
-        <div className='product'>
-          <Row xs={1} md={5} >
-            {props.filteredProducts.map((product, index) => (
-              <Card key={product.id}>
-                <div key={product.id}>
-                  <Card.Body>
-                    <Card.Title className='product_name'>{product.name}</Card.Title>  
-                    <img variant="top"  src={`${product.image}`} alt={`${product.name}`} style={{ width: 'auto', height: "auto" }}/>
-                    <Card.Footer>£{product.price.toFixed(2)}</Card.Footer>
-                    <div className='double-buttons'>
-                      <Button variant="primary" className="badge" onClick={() => {props.addToCart(product.id)}}>Add to Cart</Button>
-                      <Button variant="primary" className="badge" onClick={() => {props.removeFromCart(product.id)}}>Remove</Button>
-                    </div>
-                  </Card.Body>
-                </div>
-              </Card>
-            ))}
-          </Row>
-        </div>
+      <div className='product'>
+        <Row xs={1} md={5}>
+          {props.filteredProducts.map((product, index) => (
+            <Card key={product.id}>
+              <div key={product.id}>
+                <Card.Body>
+                  <Card.Title className='product_name'>{product.name}</Card.Title>  
+                  <img className="product-image-webp" variant="top" src={`${product.image}`} alt={`${product.name}`} style={{ width: '90%' }} />
+                  <Card.Footer>£{product.price.toFixed(2)}</Card.Footer>
+                  <div className='double-buttons'>
+                    <Button variant="primary" className="badge" onClick={() => {props.addToCart(product.id)}} style={{ width: '90%' }}>Add to Cart</Button>
+                    <Button variant="primary" className="badge" onClick={() => {props.removeFromCart(product.id)}} style={{ width: '90%' }}>Remove</Button>
+                  </div>
+                </Card.Body>
+              </div>
+            </Card>
+          ))}
+        </Row>
+      </div>
     </>
+  
     
   )
 }

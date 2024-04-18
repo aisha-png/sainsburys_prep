@@ -6,3 +6,7 @@
     display: flex;
     justify-content: space-between;
 }
+
+.product-image-webp{
+    height: 25vh;
+}
