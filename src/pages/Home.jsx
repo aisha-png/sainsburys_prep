@@ -13,13 +13,10 @@ const Home = () => {
     const categories = [...new Set(products.flatMap(product => product.category.map(cat => cat.name)))];
     const filteredProducts = products.filter(product => selectedCategories.length === 0 || selectedCategories.includes(product.category));
 
-    const handleCategoryChange = (event) => {
-        const selectedOptions = Array.from(event.target.selectedOptions, option => option.value);
-        console.log(selectedOptions);
-        setSelectedCategories(selectedOptions);
-        console.log(selectedCategories);
-        console.log("clicked")
-    }
+    const handleCategoryChange = (category) => {
+        setSelectedCategories(category);
+        console.log("Selected category:", category);
+      };
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -55,13 +52,13 @@ const Home = () => {
 
   return (
     <>
-        <Dropdown>
+        <Dropdown onSelect={handleCategoryChange}>
             <Dropdown.Toggle variant="success">
                 Select Categories
             </Dropdown.Toggle>
             <Dropdown.Menu>
                 {categories.map(category => (
-                <Dropdown.Item key={category} eventKey={category} onSelect={handleCategoryChange}>
+                <Dropdown.Item key={category} eventKey={category}>
                     {category}
                 </Dropdown.Item>
                 ))}
