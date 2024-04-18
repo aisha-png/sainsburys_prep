@@ -1,8 +1,8 @@
 import apple from "../../src/assets/apple_img.jpeg"
-import bread from "../../src/assets/apple_img.jpeg"
-import milk from "../../src/assets/apple_img.jpeg"
-import flour from "../../src/assets/apple_img.jpeg"
-import ladyFingers from "../../src/assets/apple_img.jpeg"
+import bread from "../../src/assets/bread_img.jpeg"
+import milk from "../../src/assets/semi_skimmed_milk_img.jpeg"
+import flour from "../../src/assets/plain_flour_img.jpeg"
+import ladyFingers from "../../src/assets/lady_fingers_img.jpeg"
 
 const products = [
     {

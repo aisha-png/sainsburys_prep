@@ -69,7 +69,7 @@ const Home = () => {
             Cart 
             {totalItems > 0 && <span className="badge">{totalItems}</span>}
         </Button>
-        <Modal show={show} onHide={handleClose}>
+        <Modal show={show} onHide={handleClose} size="sm">
             <Cart handleClose={handleClose} handleShow={handleShow} cartItems={cartItems} removeFromCart={removeFromCart} addToCart={addToCart} deleteFromCart={deleteFromCart}/>
         </Modal>
         
