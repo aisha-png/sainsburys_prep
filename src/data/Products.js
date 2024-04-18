@@ -10,69 +10,160 @@ const products = [
         name: 'Apple', 
         price: 0.49, 
         image: apple, 
-        category: 'Fruits'
+        category: [
+            {
+                id: 1, 
+                name: 'Fruits'
+            }, 
+            {
+                id: 2, 
+                name: 'Summer'
+            }
+        ]
     },
     {
         id: 2, 
         name: 'Bread', 
         price: 1.49, 
         image: bread, 
-        category: 'Bakery'
+        category: [
+            {
+                id: 3, 
+                name: 'Bakery'
+            }, 
+            {
+                id: 4, 
+                name: 'Baking'
+            }
+        ]
     },
     {
         id: 3, 
         name: 'Semi-Skimmed Milk', 
         price: 0.79, 
         image: milk, 
-        category: 'Dairy'
+        category: [
+            {
+                id: 5, 
+                name: 'Dairy'
+            }, 
+            {
+                id: 6, 
+                name: 'Breakfast'
+            }
+        ]
     },
     {
         id: 4, 
         name: 'Plain Flour', 
         price: 1.79, 
         image: flour, 
-        category: 'Pantry Staples'
+        category: [
+            {
+                id: 7, 
+                name: 'Pantry Staples'
+            }, 
+            {
+                id: 3, 
+                name: 'Baking'
+            }
+        ]
     },
     {
         id: 5, 
         name: 'Lady Fingers', 
         price: 2.00, 
         image: ladyFingers, 
-        category: 'Pantry Staples'
+        category: [
+            {
+                id: 7, 
+                name: 'Pantry Staples'
+            }, 
+            {
+                id: 4, 
+                name: 'Baking'
+            }
+        ]
     },
     {
         id: 6, 
         name: 'Orange', 
         price: 0.49, 
         image: apple, 
-        category: 'Fruits'
+        category: [
+            {
+            id: 1, 
+            name: 'Fruits'
+            }, 
+            {
+                id: 2, 
+                name: 'Summer'
+            }
+        ]
     },
     {
         id: 7, 
         name: 'Baguette', 
         price: 1.49, 
         image: bread, 
-        category: 'Bakery'
+        category: [
+            {
+                id: 3, 
+                name: 'Bakery'
+            }, 
+            {
+                id: 4, 
+                name: 'Baking'
+            }
+        ]
     },
     {
         id: 8, 
         name: 'Whole Milk', 
         price: 0.79, 
         image: milk, 
-        category: 'Fruits'
+        category: [
+            {
+                id: 5, 
+                name: 'Dairy'
+            }, 
+            {
+                id: 6, 
+                name: 'Breakfast'
+            }
+        ]
     },
     {
         id: 9, 
         name: 'Self Raising Flour', 
         price: 1.79, 
         image: flour, 
-        category: 'Pantry Staples'},
+        category: [
+            {
+                id: 7, 
+                name: 'Pantry Staples'
+            }, 
+            {
+                id: 3, 
+                name: 'Baking'
+            }
+        ]
+    },
     {
         id: 10, 
         name: 'Vanilla Extract', 
         price: 2.00, 
         image: ladyFingers,
-        category: 'Pantry Staples'
+        category: [
+            {
+                id: 7, 
+                name: 'Pantry Staples'
+            }, 
+            {
+                id: 3, 
+                name: 'Baking'
+            }
+        ]
     }
 ]
 

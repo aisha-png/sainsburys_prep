@@ -10,7 +10,7 @@ const Home = () => {
     const [selectedCategories, setSelectedCategories] = useState([]);
     
     const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
-    const categories = [...new Set(products.map(product => product.category))];
+    const categories = [...new Set(products.flatMap(product => product.category.map(cat => cat.name)))];
     const filteredProducts = products.filter(product => selectedCategories.length === 0 || selectedCategories.includes(product.category));
 
     const handleCategoryChange = (event) => {
@@ -61,9 +61,9 @@ const Home = () => {
             </Dropdown.Toggle>
             <Dropdown.Menu>
                 {categories.map(category => (
-                    <Dropdown.Item key={category} eventKey={category} onSelect={handleCategoryChange}>
-                        {category}
-                    </Dropdown.Item>
+                <Dropdown.Item key={category} eventKey={category} onSelect={handleCategoryChange}>
+                    {category}
+                </Dropdown.Item>
                 ))}
             </Dropdown.Menu>
         </Dropdown>
