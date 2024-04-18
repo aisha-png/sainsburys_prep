@@ -18,9 +18,14 @@ const Home = () => {
     );
 
     const handleCategoryChange = (category) => {
-        setSelectedCategories(category);
+        if (category === "All foods") {
+          setSelectedCategories([]); 
+        } else {
+          setSelectedCategories(category);
+        }
         console.log("Selected category:", category);
-      };
+    };
+      
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -61,10 +66,11 @@ const Home = () => {
                 Select Categories
             </Dropdown.Toggle>
             <Dropdown.Menu>
+                <Dropdown.Item eventKey="All foods">All foods</Dropdown.Item>
                 {categories.map(category => (
-                <Dropdown.Item key={category} eventKey={category}>
+                    <Dropdown.Item key={category} eventKey={category}>
                     {category}
-                </Dropdown.Item>
+                    </Dropdown.Item>
                 ))}
             </Dropdown.Menu>
         </Dropdown>
