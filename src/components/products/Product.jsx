@@ -1,7 +1,8 @@
-import React from 'react'
-import '../products/Product.css'
+import React from 'react';
+import '../products/Product.css';
 import { Button, Card, Row } from 'react-bootstrap';
-import star from "../../assets/svgs/star.svg"
+import star from "../../assets/svgs/star.svg";
+import heart from "../../assets/svgs/heart.svg";
 
 const Product = (props) => {
 
@@ -13,6 +14,7 @@ const Product = (props) => {
             <Card key={product.id} className="custom-card">
               <div key={product.id} className="card-content">
                 <Card.Body>
+                  <img src={`${heart}`} alt='rating star'/>
                   <Card.Title className='product_name'>{product.name}</Card.Title>  
                   <img className="product-image-webp" variant="top" src={`${product.image}`} alt={`${product.name}`} style={{ width: '80%', backgroundColor: '#F06C00', borderColor: '#F06C00'  }} />
                   <div>
