@@ -1,6 +1,7 @@
 import React from 'react'
 import '../products/Product.css'
 import { Button, Card, Row } from 'react-bootstrap';
+import star from "../../assets/svgs/star.svg"
 
 const Product = (props) => {
 
@@ -14,8 +15,15 @@ const Product = (props) => {
                 <Card.Body>
                   <Card.Title className='product_name'>{product.name}</Card.Title>  
                   <img className="product-image-webp" variant="top" src={`${product.image}`} alt={`${product.name}`} style={{ width: '80%', backgroundColor: '#F06C00', borderColor: '#F06C00'  }} />
+                  <div>
+                    <img src={`${star}`} alt='rating star'/>
+                    <img src={`${star}`} alt='rating star'/>
+                    <img src={`${star}`} alt='rating star'/>
+                    <img src={`${star}`} alt='rating star'/>
+                    <img src={`${star}`} alt='rating star'/>
+                  </div>
                     <Button variant="primary" onClick={() => {props.addToCart(product.id)}} style={{ width: '90%', backgroundColor: '#F06C00', borderColor: '#F06C00'  }}>Add</Button>
-                  <Card.Footer>£{product.price.toFixed(2)}</Card.Footer>
+                  <Card.Footer><b>£{product.price.toFixed(2)}</b></Card.Footer>
                 </Card.Body>
               </div>
             </Card>

@@ -1,5 +1,4 @@
 .product_name {
-    color: orange;
     font-size: 24px;
 }
 
@@ -46,7 +45,8 @@
 }
 
 .custom-card {
-    height: 310px;
+    height: 340px;
+    box-sizing: border-box;
 }
 
 .card-content {
