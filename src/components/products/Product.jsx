@@ -15,8 +15,10 @@ const Product = (props) => {
                     <Card.Title className='product_name'>{product.name}</Card.Title>  
                     <img variant="top"  src={`${product.image}`} alt={`${product.name}`} style={{ width: 'auto', height: "auto" }}/>
                     <Card.Footer>£{product.price.toFixed(2)}</Card.Footer>
-                    <Button variant="primary" className="badge" onClick={() => {props.addToCart(product.id)}}>Add to Cart</Button>
-                    <Button variant="primary" className="badge" onClick={() => {props.removeFromCart(product.id)}}>Remove</Button>
+                    <div className='double-buttons'>
+                      <Button variant="primary" className="badge" onClick={() => {props.addToCart(product.id)}}>Add to Cart</Button>
+                      <Button variant="primary" className="badge" onClick={() => {props.removeFromCart(product.id)}}>Remove</Button>
+                    </div>
                   </Card.Body>
                 </div>
               </Card>

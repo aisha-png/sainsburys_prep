@@ -1,3 +1,8 @@
 .product_name {
     color: orange;
 }
+
+.double-buttons {
+    display: flex;
+    justify-content: space-between;
+}

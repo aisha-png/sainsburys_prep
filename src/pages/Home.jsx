@@ -12,7 +12,10 @@ const Home = () => {
     
     const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
     const categories = [...new Set(products.flatMap(product => product.category.map(cat => cat.name)))];
-    const filteredProducts = products.filter(product => selectedCategories.length === 0 || selectedCategories.includes(product.category));
+    const filteredProducts = products.filter(product =>
+        selectedCategories.length === 0 ||
+        product.category.some(cat => selectedCategories.includes(cat.name))
+    );
 
     const handleCategoryChange = (category) => {
         setSelectedCategories(category);

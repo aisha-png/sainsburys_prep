@@ -1,3 +1,8 @@
 /* .card-body {
     margin: 0px 40px 0px 40px;
 } */
+
+.triple-buttons {
+    display: flex;
+    justify-content: space-between;
+}
