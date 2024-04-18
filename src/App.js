@@ -7,7 +7,7 @@ function App() {
 
   return (
     <div className="App">
-      <h4>Sainsbury's</h4>
+      <h4 style={{color: '#F06C00'}}>Sainsbury's</h4>
       <Home />
     </div>
   );

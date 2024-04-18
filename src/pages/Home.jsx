@@ -63,17 +63,18 @@ const Home = () => {
     <div className='home-body'>
         <Dropdown onSelect={handleCategoryChange}>
             <Dropdown.Toggle variant="success">
-                Select Categories
+                {selectedCategories.length > 0 ? selectedCategories : "Select Categories"}
             </Dropdown.Toggle>
             <Dropdown.Menu>
                 <Dropdown.Item eventKey="All foods">All foods</Dropdown.Item>
                 {categories.map(category => (
-                    <Dropdown.Item key={category} eventKey={category}>
+                <Dropdown.Item key={category} eventKey={category}>
                     {category}
-                    </Dropdown.Item>
+                </Dropdown.Item>
                 ))}
             </Dropdown.Menu>
         </Dropdown>
+
 
         <Button variant="primary" onClick={handleShow}>
             Cart 
@@ -83,7 +84,7 @@ const Home = () => {
             <Cart handleClose={handleClose} handleShow={handleShow} cartItems={cartItems} removeFromCart={removeFromCart} addToCart={addToCart} deleteFromCart={deleteFromCart}/>
         </Modal>
         
-        <Product filteredProducts={filteredProducts} products={products} addToCart={addToCart} removeFromCart={removeFromCart} />
+        <Product filteredProducts={filteredProducts} products={products} addToCart={addToCart} />
 
         
     </div>

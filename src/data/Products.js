@@ -44,7 +44,7 @@ const products = [
     },
     {
         id: 3, 
-        name: 'Semi-Skimmed Milk', 
+        name: 'Semi Skimmed Milk', 
         price: 0.79, 
         image: semi_milk, 
         category: [

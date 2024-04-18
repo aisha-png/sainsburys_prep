@@ -1,12 +1,63 @@
 .product_name {
     color: orange;
+    font-size: 24px;
 }
 
-.double-buttons {
-    display: flex;
-    justify-content: space-between;
+
+@media screen and (max-width:1189px) {
+    .product_name {
+      font-size: 18px; 
+    }
 }
+
+@media screen and (max-width:1169px) {
+    .product_name {
+      font-size: 15px; 
+    }
+}
+
+@media screen and (max-width:1149px) {
+    .product_name {
+      font-size: 13px; 
+    }
+}
+
+@media screen and (max-width:968px) {
+    .product_name {
+      font-size: 10px; 
+    }
+}
+
+@media screen and (max-width: 768px) {
+  .product_name {
+    font-size: 20px; 
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .product_name {
+    font-size: 16px; 
+  }
+}
+
 
 .product-image-webp{
     height: 25vh;
 }
+
+.custom-card {
+    height: 310px;
+}
+
+.card-content {
+    position: relative;
+    height: 100%;
+}
+  
+  .card-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  
