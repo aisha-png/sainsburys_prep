@@ -3,6 +3,8 @@ import '../products/Product.css';
 import { Button, Card, Row } from 'react-bootstrap';
 import { HeartIcon } from '@heroicons/react/24/outline'
 import { StarIcon } from '@heroicons/react/24/outline'
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 
 const Product = (props) => {
   const [ratings, setRatings] = useState({}); 
@@ -26,6 +28,12 @@ const Product = (props) => {
     return selectedRatings[productId] || ratings[productId] || 0; 
   };
 
+  const renderTooltip = (props) => (
+    <Tooltip {...props}>
+      Add to Favorites
+    </Tooltip>
+  );
+
   return (
     <>
       <div className='product'>
@@ -34,7 +42,13 @@ const Product = (props) => {
             <Card key={product.id} className="custom-card">
               <div key={product.id} className="card-content">
                 <Card.Body>
-                  <HeartIcon className="icons" style={{ display: 'flex', cursor: 'pointer' }} />
+                  <OverlayTrigger
+                    placement="right"
+                    delay={{ show: 250, hide: 400 }}
+                    overlay={renderTooltip}
+                  >
+                    <HeartIcon className="icons" style={{ display: 'flex', cursor: 'pointer' }} />
+                  </OverlayTrigger>
                   <Card.Title className='product_name'>{product.name}</Card.Title>
                   <img className="product-image-webp" variant="top" src={`${product.image}`} alt={`${product.name}`} style={{ width: '80%', backgroundColor: '#F06C00', borderColor: '#F06C00' }} />
                   <div style={{ display: 'flex', cursor: 'pointer' }}>
@@ -42,12 +56,13 @@ const Product = (props) => {
                       <StarIcon
                         key={index}
                         className="icons"
-                        style={{ fill: index < getRating(product.id) ? '#F06C00' : 'none' }} // Fill the star if its index is less than the selected or temporary rating
-                        onMouseEnter={() => handleStarHover(product.id, index)} // Set the temporary rating of the current product on hover
-                        onMouseLeave={() => setRatings(prevState => ({ ...prevState, [product.id]: 0 }))} // Reset the temporary rating when mouse leaves
-                        onClick={() => handleStarClick(product.id, index)} // Set the selected rating on click
+                        style={{ fill: index < getRating(product.id) ? '#F06C00' : 'none' }} 
+                        onMouseEnter={() => handleStarHover(product.id, index)} 
+                        onMouseLeave={() => setRatings(prevState => ({ ...prevState, [product.id]: 0 }))} 
+                        onClick={() => handleStarClick(product.id, index)}
                       />
                     ))}
+                    <p>(0)</p>
                   </div>
                   <Button variant="primary" onClick={() => { props.addToCart(product.id) }} style={{ width: '90%', backgroundColor: '#F06C00', borderColor: '#F06C00' }}>Add</Button>
                   <Card.Footer><b>£{product.price.toFixed(2)}</b></Card.Footer>
