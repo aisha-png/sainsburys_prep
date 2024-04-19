@@ -51,7 +51,7 @@ const Product = (props) => {
                     <HeartIcon className="icons" style={{ display: 'flex', cursor: 'pointer' }} />
                   </OverlayTrigger>
                   <img className="product-image-webp" variant="top" src={`${product.image}`} alt={`${product.name}`} style={{ width: '80%', backgroundColor: '#F06C00', borderColor: '#F06C00' }} />
-                  <Card.Title className='product_name'>{product.name}</Card.Title>
+                  <Card.Title className='product_name'><b>{product.name}</b></Card.Title>
                   <div style={{ display: 'flex', cursor: 'pointer' }}>
                     {[...Array(5)].map((_, index) => (
                       <StarIcon

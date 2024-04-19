@@ -1,5 +1,5 @@
 .product_name {
-    font-size: 24px;
+    font-size: 16px;
 }
 .product_name:hover {
     text-decoration: underline;
@@ -7,11 +7,11 @@
     cursor: pointer;
   }
 
-@media screen and (max-width:1189px) {
+/* @media screen and (max-width:1189px) {
     .product_name {
-      font-size: 18px; 
+      font-size: 16px; 
     }
-}
+} */
 
 @media screen and (max-width:1169px) {
     .product_name {
@@ -51,6 +51,7 @@
 .custom-card {
     height: 375px;
     box-sizing: border-box;
+    padding: 0px !important
 }
 
 .card-content {
