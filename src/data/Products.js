@@ -1,13 +1,13 @@
-import apples from "../../src/assets/apples_img.webp"
-import bread from "../../src/assets/bread_img.webp"
-import semi_milk from "../../src/assets/semi_skimmed_milk_img.webp"
-import plain_flour from "../../src/assets/plain_flour_img.webp"
-import ladyFingers from "../../src/assets/lady_fingers_img.webp"
-import self_rasing_flour from "../../src/assets/self_raising_flour_img.webp"
-import vanilla_extract from "../../src/assets/vanilla_extract_img.webp"
-import oranges from "../../src/assets/oranges_img.webp"
-import baguette from "../../src/assets/baguette_img.webp"
-import whole_milk from "../../src/assets/whole_milk_img.webp"
+import apples from "../../src/assets/images/apples_img.webp"
+import bread from "../../src/assets/images/bread_img.webp"
+import semi_milk from "../../src/assets/images/semi_skimmed_milk_img.webp"
+import plain_flour from "../../src/assets/images/plain_flour_img.webp"
+import ladyFingers from "../../src/assets/images/lady_fingers_img.webp"
+import self_rasing_flour from "../../src/assets/images/self_raising_flour_img.webp"
+import vanilla_extract from "../../src/assets/images/vanilla_extract_img.webp"
+import oranges from "../../src/assets/images/oranges_img.webp"
+import baguette from "../../src/assets/images/baguette_img.webp"
+import whole_milk from "../../src/assets/images/whole_milk_img.webp"
 
 const products = [
     {

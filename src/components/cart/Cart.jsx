@@ -21,7 +21,7 @@ const Cart = (props) => {
                 <Card.Footer>£{item.price.toFixed(2)}</Card.Footer>
                 <div className='triple-buttons'>
                   <Button className="badge" variant="primary" onClick={() => {props.addToCart(item.id)}} style={{ backgroundColor: '#F06C00', borderColor: '#F06C00' }}>Add more</Button>
-                  <Button className="badge" onClick={() => {props.removeFromCart(item.id)}} style={{ backgroundColor: '#F06C00', borderColor: '#F06C00' }}>Remove 1 Item</Button>
+                  <Button className="badge" onClick={() => {props.removeOneFromCart(item.id)}} style={{ backgroundColor: '#F06C00', borderColor: '#F06C00' }}>Remove 1 Item</Button>
                   <Button className="badge" onClick={() => {props.deleteFromCart(item.id)}} style={{ backgroundColor: '#F06C00', borderColor: '#F06C00' }}>Remove All</Button>
                 </div>
               </Card>

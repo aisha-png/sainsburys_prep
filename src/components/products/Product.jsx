@@ -5,6 +5,7 @@ import { HeartIcon } from '@heroicons/react/24/outline'
 import { StarIcon } from '@heroicons/react/24/outline'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
+import Alert from 'react-bootstrap/Alert';
 
 const Product = (props) => {
   const [ratings, setRatings] = useState({}); 
@@ -49,8 +50,8 @@ const Product = (props) => {
                   >
                     <HeartIcon className="icons" style={{ display: 'flex', cursor: 'pointer' }} />
                   </OverlayTrigger>
-                  <Card.Title className='product_name'>{product.name}</Card.Title>
                   <img className="product-image-webp" variant="top" src={`${product.image}`} alt={`${product.name}`} style={{ width: '80%', backgroundColor: '#F06C00', borderColor: '#F06C00' }} />
+                  <Card.Title className='product_name'>{product.name}</Card.Title>
                   <div style={{ display: 'flex', cursor: 'pointer' }}>
                     {[...Array(5)].map((_, index) => (
                       <StarIcon

@@ -41,7 +41,7 @@ const Home = () => {
         }
     }
 
-    const removeFromCart = (productId) => {
+    const removeOneFromCart = (productId) => {
         const existInCart = cartItems.find(item => item.id === productId);
 
         if(existInCart ){
@@ -81,7 +81,7 @@ const Home = () => {
             {totalItems > 0 && <span className="badge">{totalItems}</span>}
         </Button>
         <Modal show={show} onHide={handleClose} >
-            <Cart handleClose={handleClose} handleShow={handleShow} cartItems={cartItems} removeFromCart={removeFromCart} addToCart={addToCart} deleteFromCart={deleteFromCart}/>
+            <Cart handleClose={handleClose} handleShow={handleShow} cartItems={cartItems} removeOneFromCart={removeOneFromCart} addToCart={addToCart} deleteFromCart={deleteFromCart}/>
         </Modal>
         
         <Product filteredProducts={filteredProducts} products={products} addToCart={addToCart} />
