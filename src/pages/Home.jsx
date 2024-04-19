@@ -5,6 +5,7 @@ import Cart from '../components/cart/Cart';
 import { Button, Dropdown, Modal } from 'react-bootstrap';
 import './Home.css'
 
+
 const Home = () => {
     const [cartItems, setCartItems] = useState([]);
     const [show, setShow] = useState(false);
@@ -77,63 +78,64 @@ const Home = () => {
 
 
   return (
-    <div className='home-body'>
-        <Dropdown onSelect={handleCategoryChange}>
+    <>
+        <div className='home-body'>
+            <Dropdown onSelect={handleCategoryChange}>
+                
+                <Dropdown.Toggle variant="success">
+                    {selectedCategories.length > 0 
+                        ? selectedCategories 
+                        : "Select Category"
+                    }
+                </Dropdown.Toggle>
+                
+                <Dropdown.Menu>
+                    <Dropdown.Item eventKey="All foods">All foods</Dropdown.Item>
+                    {categories.map(category => (
+                    <Dropdown.Item 
+                        key={category} 
+                        eventKey={category}
+                    >
+                        {category}
+                    </Dropdown.Item>
+                    ))}
+                </Dropdown.Menu>
             
-            <Dropdown.Toggle variant="success">
-                {selectedCategories.length > 0 
-                    ? selectedCategories 
-                    : "Select Category"
+            </Dropdown>
+
+
+            <Button 
+                variant="primary" 
+                onClick={handleShow}
+            >
+                Cart 
+                {totalItems > 0 && 
+                    <span className="badge">{totalItems}</span>
                 }
-            </Dropdown.Toggle>
+            </Button>
+
+            <Modal 
+                show={show} 
+                onHide={handleClose} 
+            >
+                <Cart 
+                    handleClose={handleClose} 
+                    handleShow={handleShow} 
+                    cartItems={cartItems} 
+                    removeOneFromCart={removeOneFromCart} 
+                    addToCart={addToCart} 
+                    deleteFromCart={deleteFromCart}
+                />
+            </Modal>
             
-            <Dropdown.Menu>
-                <Dropdown.Item eventKey="All foods">All foods</Dropdown.Item>
-                {categories.map(category => (
-                <Dropdown.Item 
-                    key={category} 
-                    eventKey={category}
-                >
-                    {category}
-                </Dropdown.Item>
-                ))}
-            </Dropdown.Menu>
-        
-        </Dropdown>
-
-
-        <Button 
-            variant="primary" 
-            onClick={handleShow}
-        >
-            Cart 
-            {totalItems > 0 && 
-                <span className="badge">{totalItems}</span>
-            }
-        </Button>
-
-        <Modal 
-            show={show} 
-            onHide={handleClose} 
-        >
-            <Cart 
-                handleClose={handleClose} 
-                handleShow={handleShow} 
-                cartItems={cartItems} 
-                removeOneFromCart={removeOneFromCart} 
+            <Product 
+                filteredProducts={filteredProducts} 
+                products={products} 
                 addToCart={addToCart} 
-                deleteFromCart={deleteFromCart}
             />
-        </Modal>
-        
-        <Product 
-            filteredProducts={filteredProducts} 
-            products={products} 
-            addToCart={addToCart} 
-        />
-
-        
-    </div>
+            
+        </div>
+    </>
   )
 }
 
