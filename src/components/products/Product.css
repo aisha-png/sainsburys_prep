@@ -1,7 +1,11 @@
 .product_name {
     font-size: 24px;
 }
-
+.product_name:hover {
+    text-decoration: underline;
+    color: #F06C00;
+    cursor: pointer;
+  }
 
 @media screen and (max-width:1189px) {
     .product_name {
@@ -45,7 +49,7 @@
 }
 
 .custom-card {
-    height: 340px;
+    height: 360px;
     box-sizing: border-box;
 }
 
@@ -54,10 +58,14 @@
     height: 100%;
 }
   
-  .card-footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-  }
-  
+.card-footer {
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+}
+
+.icons {
+    width: 25px ;
+    height: 25px;
+}

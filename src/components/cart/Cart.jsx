@@ -16,9 +16,9 @@ const Cart = (props) => {
         <>
             <Modal.Body>
               <Card className='card-body'>
-                <Card.Title>{item.name}</Card.Title>
+                <Card.Title>{item.name} ({item.quantity})</Card.Title>
                 {/* <img variant="top" src={`${item.image}`} alt={`${item.name}`} style={{ width: 'auto', height: "auto" }} /> */}
-                <Card.Footer>£{item.price.toFixed(2)} ({item.quantity})</Card.Footer>
+                <Card.Footer>£{item.price.toFixed(2)}</Card.Footer>
                 <div className='triple-buttons'>
                   <Button className="badge" variant="primary" onClick={() => {props.addToCart(item.id)}} style={{ backgroundColor: '#F06C00', borderColor: '#F06C00' }}>Add more</Button>
                   <Button className="badge" onClick={() => {props.removeFromCart(item.id)}} style={{ backgroundColor: '#F06C00', borderColor: '#F06C00' }}>Remove 1 Item</Button>
