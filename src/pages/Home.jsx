@@ -7,7 +7,6 @@ import Navigation from '../components/navigation/Navigation';
 
 
 const Home = () => {
-    const [cartItems, setCartItems] = useState([]);
     const [selectedCategories, setSelectedCategories] = useState([]);
     
     const categories = [...new Set(products.flatMap(product => 
@@ -16,10 +15,6 @@ const Home = () => {
         ))
     )];
     
-    // const filteredProducts = products.filter(product =>
-    //     selectedCategories.length === 0 ||
-    //     product.category.some(cat => selectedCategories.includes(cat.name))
-    // );
 
     const handleCategoryChange = (category) => {
         if (category === "All foods") {
@@ -32,27 +27,11 @@ const Home = () => {
       
 
 
-    const addToCart = (productId) => {
-        const productToAdd = products.find(product => product.id === productId);
-        const existInCart = cartItems.find(product => product.id === productId);
-
-        if(existInCart) {
-            setCartItems(cartItems.map(item => 
-                item.id === productId 
-                ? {...item, quantity: item.quantity + 1} 
-                : item 
-            ));
-        } else {
-            setCartItems([...cartItems, {...productToAdd, quantity: 1}]);
-        }
-    }
-
-
   return (
     <>
     {/* <Navigation /> */}
         <div className='home-body'>
-            <Form className="d-flex">
+            {/* <Form className="d-flex">
                 <Form.Control
                     type="search"
                     placeholder="Search products"
@@ -82,7 +61,7 @@ const Home = () => {
                     ))}
                 </Dropdown.Menu>
             
-            </Dropdown>
+            </Dropdown> */}
 
 
             
