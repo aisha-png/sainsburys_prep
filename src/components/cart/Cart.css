@@ -16,3 +16,11 @@
     background-color: #F06C00;
     color: white;
 }
+
+.modal-cart {
+    padding: 25px ;
+}
+
+.outer-cart-card {
+    padding: 4px !important;
+}

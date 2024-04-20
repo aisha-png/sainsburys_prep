@@ -51,6 +51,8 @@ const Navigation = (props) => {
                 <Modal 
                     show={show} 
                     onHide={handleClose} 
+                    size="lg"
+                    centered
                 >
                     <Cart 
                         handleClose={handleClose} 
