@@ -9,7 +9,7 @@ const Cart = (props) => {
 
   return (
     <>
-    <h3>Cart</h3>
+    <h2>Cart</h2>
     <h4 >Total = £{totalPrice.toFixed(2)}</h4>
     <Row xs={1} md={1} >
       {props.cartItems.map((item, index) => (
