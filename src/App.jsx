@@ -77,7 +77,7 @@ const handleCategoryChange = (category) => {
     <>
       <Navigation addToCart={addToCart} cartItems={cartItems} removeOneFromCart={removeOneFromCart} deleteFromCart={deleteFromCart} totalItems={totalItems}/>
       <div className="App">
-        <div className='se'>
+        <div className='search-bar-form'>
           <Form className="d-flex">
               <Form.Control
                   type="search"
