@@ -6,6 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Cart from '../cart/Cart';
+import "./Navigation.css";
 
 const Navigation = (props) => {
 

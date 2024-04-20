@@ -24,3 +24,14 @@
 .outer-cart-card {
     padding: 4px !important;
 }
+
+.cart-footer {
+    display: flex !important;
+    justify-content: space-between !important;
+}
+
+.icons {
+    width: 25px ;
+    height: 25px;
+  }
+  

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import '../products/Product.css';
 import { Button, Card, Row } from 'react-bootstrap';
-import { HeartIcon } from '@heroicons/react/24/outline'
-import { StarIcon } from '@heroicons/react/24/outline'
+import { HeartIcon } from '@heroicons/react/24/outline';
+import { StarIcon } from '@heroicons/react/24/outline';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 

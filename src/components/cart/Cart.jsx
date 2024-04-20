@@ -2,6 +2,7 @@ import React from 'react';
 import '../../App.css';
 import { Button, Card, Row, Modal } from 'react-bootstrap';
 import './Cart.css';
+import { XMarkIcon } from '@heroicons/react/24/solid';
 
 const Cart = (props) => {
 
@@ -10,7 +11,6 @@ const Cart = (props) => {
   return (
     <div className='modal-cart'>
       <h2 style={{color: '#F06C00'}}><b>Cart</b></h2>
-      <h4 >Total = £{totalPrice.toFixed(2)}</h4>
       <div className="cart-modal-body"> {/* Wrapper div with fixed height */}
         <div style={{ maxHeight: '400px', overflowY: 'auto' }}> {/* Set max height and enable overflow scrolling */}
           {props.cartItems.map((item, index) => (
@@ -18,7 +18,7 @@ const Cart = (props) => {
                 <Modal.Body className='outer-cart-card'>
                   <Card className='card-body'>
                     <Card.Title>{item.name} ({item.quantity})</Card.Title>
-                    {/* <img variant="top" src={`${item.image}`} alt={`${item.name}`} style={{ width: 'auto', height: "auto" }} /> */}
+                    {/* <img variant="top" src={`${item.image}`} alt={`${item.name}`} style={{ width: '90px', height: "90px" }} /> */}
                     <Card.Footer>£{item.price.toFixed(2)}</Card.Footer>
                     <div className='triple-buttons'>
                       <Button className="badge" variant="primary" onClick={() => {props.addToCart(item.id)}} style={{ backgroundColor: '#F06C00', borderColor: '#F06C00' }}>Add more</Button>
@@ -34,9 +34,10 @@ const Cart = (props) => {
       <p>{props.cartItems.length === 0 ? 'Empty Cart!' : <span className="badge">{totalPrice.toFixed(2)}</span>}</p>
 
       <Modal.Footer>
-        <Button className="badge" variant="secondary" onClick={props.handleClose}>
-          Close
-        </Button>
+        <div className='cart-footer'>
+          <h4 >Total = £{totalPrice.toFixed(2)}</h4>
+          <XMarkIcon className='icons' onClick={props.handleClose} style={{cursor: 'pointer'}}/>
+        </div>
       </Modal.Footer>
     </div>
   )
