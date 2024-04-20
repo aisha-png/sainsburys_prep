@@ -12,6 +12,8 @@ const App = () => {
   const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   const [selectedCategories, setSelectedCategories] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
+  const [filteredSearch, setFilteredSearch] = useState([]);
 
   const categories = [...new Set(products.flatMap(product => 
     product.category.map(cat => 
@@ -73,49 +75,70 @@ const handleCategoryChange = (category) => {
     ));
   }
 
+  
+  const handleSearchSubmit = (event) => {
+    const input = event.target.value;
+    setSearchInput(input);
+    const filtered = products.filter((product) =>
+      product.name.toLowerCase().includes(input.toLowerCase())
+    );
+    setFilteredSearch(filtered);
+    console.log("Search input:", input);
+    console.log("Filtered products:", filtered);
+  }  
+
   return (
     <>
-      <Navigation addToCart={addToCart} cartItems={cartItems} removeOneFromCart={removeOneFromCart} deleteFromCart={deleteFromCart} totalItems={totalItems}/>
+      <Navigation 
+        addToCart={addToCart} 
+        cartItems={cartItems} 
+        removeOneFromCart={removeOneFromCart} 
+        deleteFromCart={deleteFromCart} 
+        totalItems={totalItems}
+      />
+
       <div className="App">
         <div className='search-bar-form'>
-          <Form className="d-flex">
-              <Form.Control
-                  type="search"
-                  placeholder="Search products"
-                  className="me-2"
-                  aria-label="Search"
-              />
-              <Button variant="outline-success">Search</Button>
-          </Form>
+        <Form className="d-flex" onSubmit={(e) => e.preventDefault()}>
+          <Form.Control
+            type="search"
+            placeholder="Search products"
+            className="me-2"
+            aria-label="Search"
+            onChange={handleSearchSubmit}
+            value={searchInput}
+          />
+          <Button variant="outline-success">Search</Button>
+        </Form>
         </div>
         <Dropdown onSelect={handleCategoryChange}>
             
-            <Dropdown.Toggle variant="success">
-                {selectedCategories.length > 0 
-                    ? selectedCategories 
-                    : "Groceries"
-                }
-            </Dropdown.Toggle>
+          <Dropdown.Toggle variant="success">
+              {selectedCategories.length > 0 
+                  ? selectedCategories 
+                  : "Groceries"
+              }
+          </Dropdown.Toggle>
             
-            <Dropdown.Menu>
-                <Dropdown.Item eventKey="All foods">All foods</Dropdown.Item>
-                {categories.map(category => (
-                <Dropdown.Item 
-                    key={category} 
-                    eventKey={category}
-                >
-                    {category}
-                </Dropdown.Item>
-                ))}
-            </Dropdown.Menu>
+          <Dropdown.Menu>
+              <Dropdown.Item eventKey="All foods">All foods</Dropdown.Item>
+              {categories.map(category => (
+              <Dropdown.Item 
+                  key={category} 
+                  eventKey={category}
+              >
+                  {category}
+              </Dropdown.Item>
+              ))}
+          </Dropdown.Menu>
         
         </Dropdown>
         <Product 
-                  filteredProducts={filteredProducts} 
-                  products={products} 
-                  addToCart={addToCart} 
-                  categories={categories}
-              />
+            filteredProducts={searchInput ? filteredSearch : filteredProducts} 
+            products={products} 
+            addToCart={addToCart} 
+            categories={categories}
+        />
       </div>
     </>
   );
