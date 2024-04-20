@@ -83,8 +83,6 @@ const handleCategoryChange = (category) => {
       product.name.toLowerCase().includes(input.toLowerCase())
     );
     setFilteredSearch(filtered);
-    console.log("Search input:", input);
-    console.log("Filtered products:", filtered);
   }  
 
   return (
