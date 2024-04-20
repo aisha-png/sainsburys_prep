@@ -1,7 +1,6 @@
 
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
-import Home from './pages/Home';
 import Navigation from './components/navigation/Navigation';
 import { useState } from 'react';
 import products from './data/Products';
@@ -78,8 +77,7 @@ const handleCategoryChange = (category) => {
     <>
       <Navigation addToCart={addToCart} cartItems={cartItems} removeOneFromCart={removeOneFromCart} deleteFromCart={deleteFromCart} totalItems={totalItems}/>
       <div className="App">
-        <Home cartItems={cartItems} addToCart={addToCart} />
-        <div className='search-bar-form'>
+        <div className='se'>
           <Form className="d-flex">
               <Form.Control
                   type="search"

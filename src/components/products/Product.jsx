@@ -5,7 +5,6 @@ import { HeartIcon } from '@heroicons/react/24/outline'
 import { StarIcon } from '@heroicons/react/24/outline'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
-import Alert from 'react-bootstrap/Alert';
 
 const Product = (props) => {
   const [ratings, setRatings] = useState({}); 
