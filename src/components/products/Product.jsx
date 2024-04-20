@@ -10,6 +10,9 @@ const Product = (props) => {
   const [ratings, setRatings] = useState({}); 
   const [selectedRatings, setSelectedRatings] = useState({}); 
 
+  const [heartHover, setHeartHover] = useState({}); // State for hover effect on heart icon
+  const [heartSelected, setHeartSelected] = useState({}); 
+
   const handleStarHover = (productId, starIndex) => {
     setRatings(prevState => ({
       ...prevState,
@@ -26,6 +29,27 @@ const Product = (props) => {
 
   const getRating = (productId) => {
     return selectedRatings[productId] || ratings[productId] || 0; 
+  };
+
+  const handleHeartHoverEnter = (productId) => {
+    setHeartHover(prevState => ({
+      ...prevState,
+      [productId]: true
+    }));
+  };
+
+  const handleHeartHoverLeave = (productId) => {
+    setHeartHover(prevState => ({
+      ...prevState,
+      [productId]: false
+    }));
+  };
+
+  const handleHeartClick = (productId) => {
+    setHeartSelected(prevState => ({
+      ...prevState,
+      [productId]: !prevState[productId]
+    }));
   };
 
   const renderTooltip = (props) => (
@@ -48,7 +72,18 @@ const Product = (props) => {
                       delay={{ show: 250, hide: 400 }}
                       overlay={renderTooltip}
                     >
-                      <HeartIcon className="icons" style={{ display: 'flex', cursor: 'pointer' }} />
+                      <HeartIcon 
+                        className="icons" 
+                        style={{ 
+                          display: 'flex', 
+                          cursor: 'pointer', 
+                          fill: heartSelected[product.id] ? 'red' : 'none',
+                          color: heartSelected[product.id] || heartHover[product.id] ? 'red' : 'black' // Apply red color if selected or hovered
+                        }} 
+                        onMouseEnter={() => handleHeartHoverEnter(product.id)} 
+                        onMouseLeave={() => handleHeartHoverLeave(product.id)} 
+                        onClick={() => handleHeartClick(product.id)} 
+                      />
                     </OverlayTrigger>
                     <img 
                       className="product-image-webp" 

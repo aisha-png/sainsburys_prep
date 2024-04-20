@@ -67,8 +67,9 @@ width: 100%;
 }
 
 .icons {
-    width: 25px ;
-    height: 25px;
+  display: flex;
+  width: 25px ;
+  height: 25px;
 }
 
 .outer-card {
