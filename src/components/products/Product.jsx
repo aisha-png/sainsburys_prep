@@ -67,7 +67,7 @@ const Product = (props) => {
                       <StarIcon
                         key={index}
                         className="icons"
-                        style={{ fill: index < getRating(product.id) ? '#F06C00' : 'none' }} 
+                        style={{ fill: index < getRating(product.id) ? '#ffe234' : 'none' }} 
                         onMouseEnter={() => handleStarHover(product.id, index)} 
                         onMouseLeave={() => setRatings(prevState => ({ ...prevState, [product.id]: 0 }))} 
                         onClick={() => handleStarClick(product.id, index)}

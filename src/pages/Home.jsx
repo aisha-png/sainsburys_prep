@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import products from '../data/Products'
 import Product from '../components/products/Product'
 import Cart from '../components/cart/Cart';
-import { Button, Dropdown, Modal } from 'react-bootstrap';
+import { Button, Dropdown, Modal, Form } from 'react-bootstrap';
 import './Home.css'
 
 
@@ -80,12 +80,21 @@ const Home = () => {
   return (
     <>
         <div className='home-body'>
+            <Form className="d-flex">
+                <Form.Control
+                    type="search"
+                    placeholder="Search products"
+                    className="me-2"
+                    aria-label="Search"
+                />
+                <Button variant="outline-success">Search</Button>
+            </Form>
             <Dropdown onSelect={handleCategoryChange}>
                 
                 <Dropdown.Toggle variant="success">
                     {selectedCategories.length > 0 
                         ? selectedCategories 
-                        : "Select Category"
+                        : "Groceries"
                     }
                 </Dropdown.Toggle>
                 
@@ -107,9 +116,10 @@ const Home = () => {
             <Button 
                 variant="primary" 
                 onClick={handleShow}
+                style={{ width: '7%', backgroundColor: '#F06C00', borderColor: '#F06C00' }}
             >
                 Cart 
-                {totalItems > 0 && 
+                {totalItems > 0 &&  
                     <span className="badge">{totalItems}</span>
                 }
             </Button>
