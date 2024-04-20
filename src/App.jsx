@@ -6,6 +6,7 @@ import { useState } from 'react';
 import products from './data/Products';
 import Product from './components/products/Product';
 import { Button, Dropdown, Form } from 'react-bootstrap';
+import Footer from './components/footer/Footer';
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -138,6 +139,7 @@ const handleCategoryChange = (category) => {
             categories={categories}
         />
       </div>
+      <Footer />
     </>
   );
 }
