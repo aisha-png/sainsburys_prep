@@ -79,15 +79,17 @@ const handleCategoryChange = (category) => {
       <Navigation addToCart={addToCart} cartItems={cartItems} removeOneFromCart={removeOneFromCart} deleteFromCart={deleteFromCart} totalItems={totalItems}/>
       <div className="App">
         <Home cartItems={cartItems} addToCart={addToCart} />
-        <Form className="d-flex">
-            <Form.Control
-                type="search"
-                placeholder="Search products"
-                className="me-2"
-                aria-label="Search"
-            />
-            <Button variant="outline-success">Search</Button>
-        </Form>
+        <div className='search-bar-form'>
+          <Form className="d-flex">
+              <Form.Control
+                  type="search"
+                  placeholder="Search products"
+                  className="me-2"
+                  aria-label="Search"
+              />
+              <Button variant="outline-success">Search</Button>
+          </Form>
+        </div>
         <Dropdown onSelect={handleCategoryChange}>
             
             <Dropdown.Toggle variant="success">
